@@ -41,16 +41,11 @@
     z-index: 2;
   }
   .text {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    
     position: absolute;
     width: 100%;
-    height: 284px;
-    top: 240px;
-    justify-content: center;
-    padding: 10px 10px 10px 10px;
+    height: min-content;
+    top: 200px;
     z-index: 4;
   }
   .text-1 {
@@ -63,17 +58,49 @@
     z-index: 5;
   }
   .title {
+    width: auto;
+    height: 175px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    gap: 18px;
+    gap: 320px;
     position: relative;
-    width: 258px;
     justify-content: center;
     z-index: 6;
+   }
+  .title p {
+    display: inline-block;
+    font-size: 80px;
+    font-weight: 400;
+    font-family: Baskerville Display PT Web;
+    word-wrap: break-word;
+   }
+   .word {
+    position: absolute;
+    opacity: 0;
   }
-  .ui-ux {
+  .letter {
+    display: inline-block;
+    position: relative;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+  }
+  
+  .letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  
+  .letter.behind {
+    transform: rotateX(-90deg);
+  }
+  
+  .letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  /* .ui-ux {
     flex-shrink: 0;
     width: fit-content;
     font-family: Baskerville Display PT Web;
@@ -82,7 +109,9 @@
     font-weight: 400;
     line-height: 103px;
     text-align: left;
-  }
+    display: inline-block;
+  } */
+  
   .quote-name {
     display: flex;
     flex-direction: column;
@@ -167,7 +196,6 @@
     flex-shrink: 0;
     flex-basis: auto;
     position: relative;
-    
     font-size: 20px;
     font-weight: 500;
     line-height: 27px;
